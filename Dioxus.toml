@@ -1,0 +1,13 @@
+[application]
+name = "netthinne"
+
+[web.app]
+title = "Netthinne - Object Recognition"
+
+[web.resource]
+style = []
+script = []
+
+[web.resource.dev]
+style = []
+script = []
