@@ -113,20 +113,31 @@ body {
     text-transform: capitalize;
 }
 
-.try-again-btn {
-    margin-top: 32px;
-    padding: 12px 32px;
+.new-scan-btn {
+    margin-top: 48px;
+    padding: 16px 52px;
+    font-family: "SN Pro", sans-serif;
     font-size: 1rem;
-    background: transparent;
-    color: #e0e0e0;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: #4fc3f7;
+    color: #0d2f3a;
+    border: none;
+    border-radius: 100px;
     cursor: pointer;
-    transition: background 0.15s;
+    box-shadow: 0 4px 28px rgba(79, 195, 247, 0.28);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
 }
 
-.try-again-btn:active {
-    background: rgba(255, 255, 255, 0.1);
+.new-scan-btn:hover {
+    background: #81d4fa;
+    box-shadow: 0 6px 36px rgba(79, 195, 247, 0.4);
+}
+
+.new-scan-btn:active {
+    transform: scale(0.96);
+    box-shadow: 0 2px 16px rgba(79, 195, 247, 0.2);
 }
 
 .error-text {

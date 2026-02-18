@@ -1,11 +1,10 @@
 mod recognition;
 
-use crate::translation;
+use crate::image_utils::preprocess_for_model;
 
-/// Processes raw image data through the ML pipeline.
+/// Processes raw RGBA camera data through the ML pipeline.
 /// Returns (english_label, norwegian_label).
-pub fn process_image(image_data: &[u8]) -> (String, String) {
-    let english = recognition::recognize(image_data);
-    let norwegian = translation::translate(&english);
-    (english, norwegian)
+pub fn process_image(rgba_bytes: &[u8], width: u32, height: u32) -> (String, String) {
+    let float_data = preprocess_for_model(rgba_bytes, width, height).unwrap_or_default();
+    recognition::recognize(float_data)
 }

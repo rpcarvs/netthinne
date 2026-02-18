@@ -1,24 +1,32 @@
-use image::{ImageBuffer, Rgba, imageops::FilterType};
+use image::{imageops, RgbImage};
 
-/// Preprocesses raw RGBA pixel data for model input.
-/// Resizes to 224x224, converts to RGB, normalizes to [0.0, 1.0] in CHW format.
-pub fn preprocess_for_model(rgba_bytes: &[u8], width: u32, height: u32) -> Vec<f32> {
-    let img: ImageBuffer<Rgba<u8>, Vec<u8>> =
-        ImageBuffer::from_raw(width, height, rgba_bytes.to_vec())
-            .expect("failed to create image buffer from raw RGBA data");
+const MEAN: [f32; 3] = [0.485, 0.456, 0.406];
+const STD: [f32; 3] = [0.229, 0.224, 0.225];
 
-    let resized = image::imageops::resize(&img, 224, 224, FilterType::Triangle);
+/// Converts raw RGBA pixels to a 1x3x224x224 CHW float32 tensor (flat Vec).
+/// Applies ImageNet mean/std normalization as required by MobileNetV2.
+pub fn preprocess_for_model(
+    rgba_bytes: &[u8],
+    source_width: u32,
+    source_height: u32,
+) -> Result<Vec<f32>, String> {
+    let rgb_bytes: Vec<u8> = rgba_bytes
+        .chunks(4)
+        .flat_map(|p| [p[0], p[1], p[2]])
+        .collect();
 
-    let mut chw = vec![0.0f32; 3 * 224 * 224];
-    for y in 0..224u32 {
-        for x in 0..224u32 {
-            let pixel = resized.get_pixel(x, y);
-            let idx = (y * 224 + x) as usize;
-            chw[idx] = pixel[0] as f32 / 255.0;             // R
-            chw[224 * 224 + idx] = pixel[1] as f32 / 255.0;  // G
-            chw[2 * 224 * 224 + idx] = pixel[2] as f32 / 255.0; // B
+    let img = RgbImage::from_raw(source_width, source_height, rgb_bytes)
+        .ok_or("Failed to create image from raw bytes")?;
+
+    let resized = imageops::resize(&img, 224, 224, imageops::FilterType::Triangle);
+
+    // CHW layout: all R, then all G, then all B
+    let mut out = vec![0.0f32; 3 * 224 * 224];
+    for (i, pixel) in resized.pixels().enumerate() {
+        for c in 0..3 {
+            out[c * 224 * 224 + i] = (pixel[c] as f32 / 255.0 - MEAN[c]) / STD[c];
         }
     }
 
-    chw
+    Ok(out)
 }

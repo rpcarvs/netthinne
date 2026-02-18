@@ -3,6 +3,7 @@ name = "netthinne"
 
 [web.app]
 title = "Netthinne - Object Recognition"
+base_path = "netthinne"
 
 [web.resource]
 style = []

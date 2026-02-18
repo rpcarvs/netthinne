@@ -4,7 +4,7 @@ use web_sys::{
     window, HtmlCanvasElement, HtmlVideoElement, MediaStreamConstraints, MediaStreamTrack,
 };
 
-/// Starts the camera and attaches the stream to a <video> element.
+/// Starts the camera and attaches the stream to a video element.
 pub async fn start_camera(video_id: &str) -> Result<(), String> {
     let window = window().ok_or("no window")?;
     let document = window.document().ok_or("no document")?;

@@ -1,0 +1,5 @@
+[env]
+# Use Homebrew LLVM clang for wasm32 C dependencies (e.g. zstd-sys).
+# Apple's system clang does not include the wasm32-unknown-unknown backend.
+CC_wasm32_unknown_unknown = "/opt/homebrew/opt/llvm/bin/clang"
+AR_wasm32_unknown_unknown = "/opt/homebrew/opt/llvm/bin/llvm-ar"

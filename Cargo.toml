@@ -1,6 +1,6 @@
 [package]
 name = "netthinne"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
 description = "Camera-based object recognition with Norwegian translation"
 
@@ -9,25 +9,37 @@ dioxus = { version = "0.7", features = ["web"] }
 wasm-bindgen = "0.2"
 wasm-bindgen-futures = "0.4"
 web-sys = { version = "0.3", features = [
-    "Navigator",
-    "MediaDevices",
-    "MediaStream",
-    "MediaStreamTrack",
-    "MediaStreamConstraints",
-    "MediaTrackConstraints",
-    "HtmlVideoElement",
-    "HtmlCanvasElement",
-    "CanvasRenderingContext2d",
-    "ImageData",
-    "Document",
-    "Window",
-    "Element",
+  "Navigator",
+  "MediaDevices",
+  "MediaStream",
+  "MediaStreamTrack",
+  "MediaStreamConstraints",
+  "MediaTrackConstraints",
+  "HtmlVideoElement",
+  "HtmlCanvasElement",
+  "CanvasRenderingContext2d",
+  "ImageData",
+  "Document",
+  "Window",
+  "Element",
 ] }
 js-sys = "0.3"
-image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+image = { version = "0.25", default-features = false, features = [
+  "png",
+  "jpeg",
+] }
 log = "0.4"
 wasm-logger = "0.2"
+burn = { version = "0.20.1", default-features = false, features = ["ndarray"] }
+burn-ndarray = { version = "0.20.1", default-features = false }
+burn-store = { version = "0.20.1", features = ["std", "burnpack"] }
 
 [profile.release]
-opt-level = "s"
-lto = true
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+
+[build-dependencies]
+burn-onnx = "0.21.0-pre.1"
+# burn-import = { version = "0.20.1", features = ["onnx"] }

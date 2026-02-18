@@ -4,7 +4,6 @@ mod camera;
 mod image_utils;
 mod ml;
 mod state;
-mod translation;
 
 fn main() {
     wasm_logger::init(wasm_logger::Config::default());

@@ -70,9 +70,9 @@ fn CameraScreen(state: Signal<AppState>) -> Element {
                         state.write().screen = Screen::Processing;
 
                         match camera::capture_frame(VIDEO_ID) {
-                            Ok((pixels, _w, _h)) => {
+                            Ok((pixels, w, h)) => {
                                 let _ = camera::stop_camera(VIDEO_ID);
-                                let (english, norwegian) = ml::process_image(&pixels);
+                                let (english, norwegian) = ml::process_image(&pixels, w, h);
                                 let mut s = state.write();
                                 s.detected_label = Some(english);
                                 s.translated_label = Some(norwegian);
@@ -103,16 +103,8 @@ fn ProcessingScreen() -> Element {
 
 #[component]
 fn ResultScreen(state: Signal<AppState>) -> Element {
-    let detected = state
-        .read()
-        .detected_label
-        .clone()
-        .unwrap_or_default();
-    let translated = state
-        .read()
-        .translated_label
-        .clone()
-        .unwrap_or_default();
+    let detected = state.read().detected_label.clone().unwrap_or_default();
+    let translated = state.read().translated_label.clone().unwrap_or_default();
 
     let mut state = state;
 
@@ -121,11 +113,11 @@ fn ResultScreen(state: Signal<AppState>) -> Element {
             p { class: "label-english", "{detected}" }
             p { class: "label-norwegian", "{translated}" }
             button {
-                class: "try-again-btn",
+                class: "new-scan-btn",
                 onclick: move |_| {
                     *state.write() = AppState::default();
                 },
-                "Try Again"
+                "New Scan"
             }
         }
     }
