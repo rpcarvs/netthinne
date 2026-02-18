@@ -1,5 +1,5 @@
 const CACHE_NAME = "netthinne-v1";
-const ASSETS = ["/", "/index.html"];
+const ASSETS = ["/netthinne/", "/netthinne/index.html"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

@@ -2,7 +2,7 @@
 name = "netthinne"
 
 [web.app]
-title = "Netthinne - Object Recognition"
+title = "Netthinne"
 base_path = "netthinne"
 
 [web.resource]

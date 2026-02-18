@@ -30,24 +30,25 @@ release: ci
     cargo build --release
 
 clean:
-    rm -rf dist/*
+    rm -rf docs/*
     cargo clean
 
 dev-serve:
     dx serve
 
 serve:
-    python3 -m http.server 8080 --directory dist
+    python3 -m http.server 8080 --directory docs
 
 # build/publish using dx build
-# targeting  release and web then copy from target/ to dist/
+# targeting  release and web then copy from target/ to docs/
 
 # finally, optimize the wasm build with wasm-opt
 publish:
     RUSTFLAGS="-C target-feature=+simd128" dx build --release --platform web --debug-symbols false
-    cp -r target/dx/netthinne/release/web/public/. dist/
-    find dist -name "*.wasm" -exec wasm-opt -O3 --enable-simd --strip-dwarf {} -o {} \;
-    touch dist/.nojekyll
+    cp -r target/dx/netthinne/release/web/public/. docs/
+    find docs -name "*.wasm" -exec wasm-opt -O3 --enable-simd --strip-dwarf {} -o {} \;
+    python3 scripts/inject_pwa_tags.py docs/index.html
+    touch docs/.nojekyll
 
 # bump version (patch, minor, major)
 bump kind="patch":

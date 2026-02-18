@@ -22,15 +22,6 @@ pub fn App() -> Element {
             rel: "stylesheet",
             href: "https://fonts.googleapis.com/css2?family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap",
         }
-        document::Link { rel: "manifest", href: "/manifest.json" }
-        document::Meta { name: "theme-color", content: "#1a4a58" }
-        document::Meta { name: "apple-mobile-web-app-capable", content: "yes" }
-        document::Meta {
-            name: "apple-mobile-web-app-status-bar-style",
-            content: "black-translucent",
-        }
-
-
         div { class: "app",
             match state.read().screen {
                 Screen::Camera => rsx! { CameraScreen { state } },
@@ -53,40 +44,42 @@ fn CameraScreen(state: Signal<AppState>) -> Element {
     rsx! {
         div { class: "camera-screen",
             h1 { class: "app-title", "Netthinne" }
-            video {
-                id: VIDEO_ID,
-                autoplay: true,
-                playsinline: true,
-                class: "camera-preview",
+            div { class: "camera-viewport",
+                video {
+                    id: VIDEO_ID,
+                    autoplay: true,
+                    playsinline: true,
+                    class: "camera-preview",
+                }
+                button {
+                    class: "capture-btn",
+                    onclick: move |_| {
+                        let mut state = state;
+                        spawn(async move {
+                            state.write().screen = Screen::Processing;
+
+                            match camera::capture_frame(VIDEO_ID) {
+                                Ok((pixels, w, h)) => {
+                                    let _ = camera::stop_camera(VIDEO_ID);
+                                    let (english, norwegian) = ml::process_image(&pixels, w, h);
+                                    let mut s = state.write();
+                                    s.detected_label = Some(english);
+                                    s.translated_label = Some(norwegian);
+                                    s.screen = Screen::Result;
+                                }
+                                Err(e) => {
+                                    log::error!("Capture error: {}", e);
+                                    let mut s = state.write();
+                                    s.error = Some(e);
+                                    s.screen = Screen::Camera;
+                                }
+                            }
+                        });
+                    },
+                }
             }
             if let Some(ref err) = state.read().error {
                 p { class: "error-text", "{err}" }
-            }
-            button {
-                class: "capture-btn",
-                onclick: move |_| {
-                    let mut state = state;
-                    spawn(async move {
-                        state.write().screen = Screen::Processing;
-
-                        match camera::capture_frame(VIDEO_ID) {
-                            Ok((pixels, w, h)) => {
-                                let _ = camera::stop_camera(VIDEO_ID);
-                                let (english, norwegian) = ml::process_image(&pixels, w, h);
-                                let mut s = state.write();
-                                s.detected_label = Some(english);
-                                s.translated_label = Some(norwegian);
-                                s.screen = Screen::Result;
-                            }
-                            Err(e) => {
-                                log::error!("Capture error: {}", e);
-                                let mut s = state.write();
-                                s.error = Some(e);
-                                s.screen = Screen::Camera;
-                            }
-                        }
-                    });
-                },
             }
         }
     }
