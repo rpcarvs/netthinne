@@ -20,7 +20,12 @@ pub fn preprocess_for_model(
     let img = RgbImage::from_raw(source_width, source_height, rgb_bytes)
         .ok_or("Failed to create image from raw bytes")?;
 
-    let resized = imageops::resize(&img, IMG_W as u32, IMG_H as u32, imageops::FilterType::Triangle);
+    let resized = imageops::resize(
+        &img,
+        IMG_W as u32,
+        IMG_H as u32,
+        imageops::FilterType::Triangle,
+    );
 
     let total = IMG_W * IMG_H * 3;
     let mut out = vec![0.0f32; total];

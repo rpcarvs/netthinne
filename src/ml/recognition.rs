@@ -45,11 +45,19 @@ pub fn recognize(float_data: Vec<f32>) -> (String, String) {
     });
 
     let input = if IS_NHWC {
-        Tensor::<Backend, 1>::from_floats(float_data.as_slice(), &device)
-            .reshape([1, IMG_H as i32, IMG_W as i32, 3])
+        Tensor::<Backend, 1>::from_floats(float_data.as_slice(), &device).reshape([
+            1,
+            IMG_H as i32,
+            IMG_W as i32,
+            3,
+        ])
     } else {
-        Tensor::<Backend, 1>::from_floats(float_data.as_slice(), &device)
-            .reshape([1, 3, IMG_H as i32, IMG_W as i32])
+        Tensor::<Backend, 1>::from_floats(float_data.as_slice(), &device).reshape([
+            1,
+            3,
+            IMG_H as i32,
+            IMG_W as i32,
+        ])
     };
 
     let output = MODEL.with(|cell| {

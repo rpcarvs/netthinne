@@ -892,10 +892,6 @@ criteria = "safe-to-deploy"
 version = "2.3.0"
 criteria = "safe-to-deploy"
 
-[[exemptions.fdeflate]]
-version = "0.3.7"
-criteria = "safe-to-deploy"
-
 [[exemptions.filetime]]
 version = "0.2.27"
 criteria = "safe-to-deploy"
@@ -1642,10 +1638,6 @@ criteria = "safe-to-deploy"
 
 [[exemptions.pkg-config]]
 version = "0.3.32"
-criteria = "safe-to-deploy"
-
-[[exemptions.png]]
-version = "0.18.1"
 criteria = "safe-to-deploy"
 
 [[exemptions.portable-atomic]]
@@ -2802,12 +2794,4 @@ criteria = "safe-to-deploy"
 
 [[exemptions.zstd-sys]]
 version = "2.0.16+zstd.1.5.7"
-criteria = "safe-to-deploy"
-
-[[exemptions.zune-core]]
-version = "0.5.1"
-criteria = "safe-to-deploy"
-
-[[exemptions.zune-jpeg]]
-version = "0.5.12"
 criteria = "safe-to-deploy"
