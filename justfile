@@ -65,6 +65,7 @@ serve:
 publish: clean set-model
     RUSTFLAGS="-C target-feature=+simd128" dx build --release --platform web --debug-symbols false
     cp -r target/dx/netthinne/release/web/public/. docs/
+    python3 scripts/dehash_assets.py docs/
     find docs -name "*.wasm" -exec wasm-opt -O3 --enable-simd --enable-bulk-memory --strip-debug --strip-producers {} -o {} \;
     python3 scripts/inject_pwa_tags.py docs/index.html
     touch docs/.nojekyll

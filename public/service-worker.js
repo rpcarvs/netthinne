@@ -1,5 +1,8 @@
 const CACHE_NAME = "netthinne-v2";
 
+// Asset filenames are stable (hashes stripped by scripts/dehash_assets.py at build time).
+// Network-first means each deploy overwrites the cached WASM/JS in place — no accumulation.
+
 self.addEventListener("install", () => self.skipWaiting());
 
 self.addEventListener("activate", (event) => {
@@ -12,7 +15,6 @@ self.addEventListener("activate", (event) => {
 });
 
 // Network-first: always fetch fresh content, fall back to cache when offline.
-// This prevents stale index.html (with old JS hash) from being served after a deploy.
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     fetch(event.request)
