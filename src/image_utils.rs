@@ -1,10 +1,12 @@
 use image::{imageops, RgbImage};
 
-const MEAN: [f32; 3] = [0.485, 0.456, 0.406];
-const STD: [f32; 3] = [0.229, 0.224, 0.225];
+mod model_config {
+    include!(concat!(env!("OUT_DIR"), "/ml/model_config.rs"));
+}
+use model_config::{IMG_H, IMG_W, IS_BGR, IS_NHWC, MEAN, STD};
 
-/// Converts raw RGBA pixels to a 1x3x224x224 CHW float32 tensor (flat Vec).
-/// Applies ImageNet mean/std normalization as required by MobileNetV2.
+/// Converts raw RGBA pixels to a float32 tensor matching the active model's expected format.
+/// Layout (NCHW or NHWC), channel order (RGB or BGR), and normalization are all config-driven.
 pub fn preprocess_for_model(
     rgba_bytes: &[u8],
     source_width: u32,
@@ -18,13 +20,35 @@ pub fn preprocess_for_model(
     let img = RgbImage::from_raw(source_width, source_height, rgb_bytes)
         .ok_or("Failed to create image from raw bytes")?;
 
-    let resized = imageops::resize(&img, 224, 224, imageops::FilterType::Triangle);
+    let resized = imageops::resize(&img, IMG_W as u32, IMG_H as u32, imageops::FilterType::Triangle);
 
-    // CHW layout: all R, then all G, then all B
-    let mut out = vec![0.0f32; 3 * 224 * 224];
+    let total = IMG_W * IMG_H * 3;
+    let mut out = vec![0.0f32; total];
+
     for (i, pixel) in resized.pixels().enumerate() {
-        for c in 0..3 {
-            out[c * 224 * 224 + i] = (pixel[c] as f32 / 255.0 - MEAN[c]) / STD[c];
+        // Normalize each channel then optionally swap to BGR order
+        let vals = if IS_BGR {
+            [
+                (pixel[2] as f32 / 255.0 - MEAN[0]) / STD[0], // B → channel 0
+                (pixel[1] as f32 / 255.0 - MEAN[1]) / STD[1], // G → channel 1
+                (pixel[0] as f32 / 255.0 - MEAN[2]) / STD[2], // R → channel 2
+            ]
+        } else {
+            [
+                (pixel[0] as f32 / 255.0 - MEAN[0]) / STD[0],
+                (pixel[1] as f32 / 255.0 - MEAN[1]) / STD[1],
+                (pixel[2] as f32 / 255.0 - MEAN[2]) / STD[2],
+            ]
+        };
+
+        if IS_NHWC {
+            out[i * 3 + 0] = vals[0];
+            out[i * 3 + 1] = vals[1];
+            out[i * 3 + 2] = vals[2];
+        } else {
+            out[0 * IMG_H * IMG_W + i] = vals[0];
+            out[1 * IMG_H * IMG_W + i] = vals[1];
+            out[2 * IMG_H * IMG_W + i] = vals[2];
         }
     }
 

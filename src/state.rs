@@ -11,6 +11,7 @@ pub struct AppState {
     pub detected_label: Option<String>,
     pub translated_label: Option<String>,
     pub error: Option<String>,
+    pub captured_pixels: Option<(Vec<u8>, u32, u32)>,
 }
 
 impl Default for AppState {
@@ -20,6 +21,7 @@ impl Default for AppState {
             detected_label: None,
             translated_label: None,
             error: None,
+            captured_pixels: None,
         }
     }
 }

@@ -25,7 +25,7 @@ pub fn App() -> Element {
         div { class: "app",
             match state.read().screen {
                 Screen::Camera => rsx! { CameraScreen { state } },
-                Screen::Processing => rsx! { ProcessingScreen {} },
+                Screen::Processing => rsx! { ProcessingScreen { state } },
                 Screen::Result => rsx! { ResultScreen { state } },
             }
         }
@@ -54,27 +54,18 @@ fn CameraScreen(state: Signal<AppState>) -> Element {
                 button {
                     class: "capture-btn",
                     onclick: move |_| {
-                        let mut state = state;
-                        spawn(async move {
-                            state.write().screen = Screen::Processing;
-
-                            match camera::capture_frame(VIDEO_ID) {
-                                Ok((pixels, w, h)) => {
-                                    let _ = camera::stop_camera(VIDEO_ID);
-                                    let (english, norwegian) = ml::process_image(&pixels, w, h);
-                                    let mut s = state.write();
-                                    s.detected_label = Some(english);
-                                    s.translated_label = Some(norwegian);
-                                    s.screen = Screen::Result;
-                                }
-                                Err(e) => {
-                                    log::error!("Capture error: {}", e);
-                                    let mut s = state.write();
-                                    s.error = Some(e);
-                                    s.screen = Screen::Camera;
-                                }
+                        match camera::capture_frame(VIDEO_ID) {
+                            Ok((pixels, w, h)) => {
+                                let _ = camera::stop_camera(VIDEO_ID);
+                                let mut s = state.write();
+                                s.captured_pixels = Some((pixels, w, h));
+                                s.screen = Screen::Processing;
                             }
-                        });
+                            Err(e) => {
+                                log::error!("Capture error: {}", e);
+                                state.write().error = Some(e);
+                            }
+                        }
                     },
                 }
             }
@@ -85,8 +76,29 @@ fn CameraScreen(state: Signal<AppState>) -> Element {
     }
 }
 
+/// Mounts while inference runs. use_future fires once on mount, runs inference,
+/// then navigates to ResultScreen. ProcessingScreen stays alive for the full duration
+/// so the task is never cancelled by scope drops.
 #[component]
-fn ProcessingScreen() -> Element {
+fn ProcessingScreen(state: Signal<AppState>) -> Element {
+    use_future(move || async move {
+        let data = state.read().captured_pixels.clone();
+        match data {
+            Some((pixels, w, h)) => {
+                let (english, norwegian) = ml::process_image(&pixels, w, h);
+                let mut s = state.write();
+                s.detected_label = Some(english);
+                s.translated_label = Some(norwegian);
+                s.captured_pixels = None;
+                s.screen = Screen::Result;
+            }
+            None => {
+                log::error!("ProcessingScreen mounted with no captured pixels");
+                state.write().screen = Screen::Camera;
+            }
+        }
+    });
+
     rsx! {
         div { class: "processing-screen",
             p { class: "processing-text", "Analyzing..." }
