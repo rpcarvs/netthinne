@@ -13,7 +13,7 @@ The app is built with [Dioxus](https://dioxuslabs.com/), a Rust framework for bu
 
 Inference is handled by [Burn](https://burn.dev/), a Rust deep learning framework. A pre-trained ONNX model is compiled directly into the WebAssembly binary at build time using `burn-onnx`, so the app ships as a single self-contained bundle with no server calls at inference time.
 
-This adds a constraint in model size, which impacts accuracy. So expect some unexpected classifications.
+This adds a constraint in model size. Far too large models will require long loading time and higher traffic use. So smaller models more suitable to mobile phones need to be used, which impacts accuracy. So expect some unexpected classifications.
 
 When a photo is taken, the raw camera frame is preprocessed in Rust (resized, normalized, and laid out in the tensor format the model expects) before being fed to the model. The predicted class is looked up in a bilingual label list and both the English and Norwegian names are shown.
 
