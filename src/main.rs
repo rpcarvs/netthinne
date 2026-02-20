@@ -1,6 +1,5 @@
 mod app;
 mod camera;
-#[allow(dead_code)]
 mod image_utils;
 mod ml;
 mod state;

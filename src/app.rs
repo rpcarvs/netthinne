@@ -111,8 +111,6 @@ fn ResultScreen(state: Signal<AppState>) -> Element {
     let detected = state.read().detected_label.clone().unwrap_or_default();
     let translated = state.read().translated_label.clone().unwrap_or_default();
 
-    let mut state = state;
-
     rsx! {
         div { class: "result-screen",
             p { class: "label-english", "{detected}" }

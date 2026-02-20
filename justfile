@@ -1,22 +1,7 @@
 # https://just.systems
 
-model := "efficientnet-lite4.onnx"
-model_cfg := "efficientnet-lite4.cfg"
-
-# model := "mobilenetv2.onnx"
-# model_cfg := "mobilenetv2.cfg"
-#
-# model := "inception-v2.onnx"
-# model_cfg := "inception-v2.cfg"
-# model := "xenova_convnext-tiny-224_fp32.onnx"
-# model_cfg := "convnext-fp32.cfg"
-
 default:
     just --list
-
-set-model:
-    cp dev/{{ model }} src/ml/model.onnx
-    cp dev/{{ model_cfg }} src/ml/model.cfg
 
 build:
     cargo build
@@ -62,7 +47,7 @@ serve:
 # targeting  release and web then copy from target/ to docs/
 
 # finally, optimize the wasm build with wasm-opt
-publish: clean set-model
+publish: clean
     RUSTFLAGS="-C target-feature=+simd128" dx build --release --platform web --debug-symbols false
     cp -r target/dx/netthinne/release/web/public/. docs/
     python3 scripts/dehash_assets.py docs/

@@ -1,5 +1,5 @@
 pub mod model {
-    include!(concat!(env!("OUT_DIR"), "/ml/model.rs"));
+    include!(concat!(env!("OUT_DIR"), "/ml/mobilenet_v2_1_4_fp32.rs"));
 }
 
 mod labels {
@@ -10,12 +10,6 @@ mod labels_norsk {
     include!(concat!(env!("OUT_DIR"), "/ml/labels_norsk.rs"));
 }
 
-#[allow(dead_code)]
-mod model_config {
-    include!(concat!(env!("OUT_DIR"), "/ml/model_config.rs"));
-}
-use model_config::{IMG_H, IMG_W, IS_NHWC};
-
 use std::cell::RefCell;
 
 use burn::backend::NdArray;
@@ -25,14 +19,11 @@ use model::Model;
 type Backend = NdArray<f32>;
 
 thread_local! {
-    /// Model weights are deserialized once and reused across inference calls.
-    /// Model::default() copies ~50 MB of weights into NdArray tensors, so calling
-    /// it on every shutter press would take several minutes in WASM.
+    /// Cached model instance. Deserialized once, reused across inference calls.
     static MODEL: RefCell<Option<Model<Backend>>> = const { RefCell::new(None) };
 }
 
-/// Runs model inference on preprocessed float tensor data.
-/// Layout and dimensions are determined by the active model's config.
+/// Runs MobileNetV2 inference on preprocessed NCHW float data.
 /// Returns (english_label, norwegian_label).
 pub fn recognize(float_data: Vec<f32>) -> (String, String) {
     let device = Default::default();
@@ -44,21 +35,8 @@ pub fn recognize(float_data: Vec<f32>) -> (String, String) {
         }
     });
 
-    let input = if IS_NHWC {
-        Tensor::<Backend, 1>::from_floats(float_data.as_slice(), &device).reshape([
-            1,
-            IMG_H as i32,
-            IMG_W as i32,
-            3,
-        ])
-    } else {
-        Tensor::<Backend, 1>::from_floats(float_data.as_slice(), &device).reshape([
-            1,
-            3,
-            IMG_H as i32,
-            IMG_W as i32,
-        ])
-    };
+    let input = Tensor::<Backend, 1>::from_floats(float_data.as_slice(), &device)
+        .reshape([1, 3, 224, 224]);
 
     let output = MODEL.with(|cell| {
         let guard = cell.borrow();

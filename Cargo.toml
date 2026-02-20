@@ -39,4 +39,3 @@ panic = "abort"
 
 [build-dependencies]
 burn-onnx = "0.21.0-pre.1"
-# burn-import = { version = "0.20.1", features = ["onnx"] }
