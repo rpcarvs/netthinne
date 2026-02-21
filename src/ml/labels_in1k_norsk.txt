@@ -1,0 +1,1000 @@
+suter
+gullfisk
+stor hvithai
+tigerhai
+hammerhai
+elektrisk rokke
+pilrokke
+hane
+høne
+struts
+bramling
+gullfink
+husfink
+junko
+indigo-spurv
+rødstrupe
+bulbul
+nøtteskrike
+skjære
+meis
+fossekall
+glente
+hvithodehavørn
+gribb
+lappugle
+europeisk ildsalamander
+vanlig salamander
+salamanderlarve
+flekket salamander
+axolotl
+oksefrosk
+trefrosk
+halefrosk
+karettskilpadde
+lærskilpadde
+gjørmeskilpadde
+sumpskilpadde
+boksskilpadde
+båndet gekko
+vanlig iguan
+anolis
+piskehaleøgle
+agam
+krageøgle
+alligatorøgle
+gilamonster
+grønn øgle
+Afrikansk kameleon
+Komodo-drage
+Afrikansk krokodille
+Amerikansk alligator
+triceratops
+tordenslange
+ringhalsslange
+griseneseslange
+grønn slange
+kongeslange
+strømpebåndsslange
+vannslange
+vinrankslange
+nattslange
+boaorm
+bergpyton
+Indisk kobra
+grønn mamba
+sjøslange
+hornhoggorm
+diamant-klapperslange
+sidevinder
+trilobitt
+vevkjerring
+skorpion
+svart og gull hageedderkopp
+låveedderkopp
+hageedderkopp
+svart enke
+tarantell
+ulveedderkopp
+flått
+tusenbein
+orrfugl
+rype
+rufset rype
+præriekylling
+påfugl
+vaktel
+rapphøne
+grå jako
+ara
+svovelkakadue
+loripapegøye
+sporegjøk
+bieter
+neshornfugl
+kolibri
+jakamar
+tukan
+andrik
+rødbrystet merganser
+gås
+svart svane
+elefantokse
+maurpinnsvin
+nebbdyr
+wallaby
+koala
+vombat
+manet
+sjøanemone
+hjernekorall
+flatorm
+rundorm
+konkylie
+snegl
+nakensnegl
+sjøsnegl
+leddsnegl
+kammernautilus
+Dungeness krabbe
+steinkrabbe
+spelemannskrabbe
+kongekrabbe
+Amerikansk hummer
+pigghummer
+kreps
+eremittkrabbe
+tanglus
+hvit stork
+svart stork
+skjestork
+flamingo
+liten blå hegre
+silkehegre
+rørdrum
+trane
+limpkin
+europeisk sumphøne
+amerikansk sothøne
+trappe
+steinvender
+myrsnipe
+rødstilk
+dowitcher
+tjeld
+pelikan
+kongepingvin
+albatross
+gråhval
+spekkhogger
+sjøku
+sjøløve
+Chihuahua
+Japansk spaniel
+maltesisk hund
+Pekineser
+Shih-Tzu
+blenheimspaniel
+papillon
+toyterrier
+Rhodesian ridgeback
+Afghansk hund
+basset
+beagle
+blodhund
+bluetick
+svartbrun coonhound
+Walker-hund
+Engelsk revehund
+redbone
+borzoi
+Irsk ulvehund
+Italiensk mynde
+whippet
+Ibiza-hund
+Norsk elghund
+oterhund
+Saluki
+Skotsk hjortehund
+Weimaraner
+Staffordshire bullterrier
+Amerikansk Staffordshire terrier
+Bedlington terrier
+Border terrier
+Kerry blue terrier
+Irsk terrier
+Norfolk terrier
+Norwich terrier
+Yorkshire terrier
+trådhåret foxterrier
+Lakeland terrier
+Sealyham terrier
+Airedale
+cairnterrier
+australsk terrier
+Dandie Dinmont
+bostonterrier
+dvergschnauzer
+kjempeschnauzer
+standard schnauzer
+Scotch terrier
+Tibetansk terrier
+silkeaktig terrier
+mykbelagt wheaten terrier
+West Highland white terrier
+Lhasa
+flatthåret retriever
+krøllhåret retriever
+golden retriever
+Labrador retriever
+Chesapeake Bay retriever
+tysk korthåret pointer
+vizsla
+Engelsk setter
+Irsk setter
+Gordon setter
+breton
+clumberspaniel
+Engelsk springer
+walisisk springerspaniel
+cockerspaniel
+sussexspaniel
+irsk vannspaniel
+kuvasz
+schipperke
+groenendael
+malinois
+briard
+kelpie
+komondor
+Gammel engelsk fårehund
+Shetland sheepdog
+collie
+Border collie
+Bouvier des Flandres
+Rottweiler
+tysk schæferhund
+Dobermann
+dvergpinscher
+stor sveitsisk sennenhund
+Berner sennenhund
+Appenzeller
+EntleBucher
+bokser
+bullmastiff
+Tibetansk mastiff
+Fransk bulldog
+grand danois
+sanktbernhardshund
+eskimohund
+malamute
+Sibirsk husky
+dalmatiner
+affenpinscher
+basenji
+mops
+Leonberg
+Newfoundland
+pyreneerhund
+Samojed
+Pomeranian
+chow
+keeshond
+Brabancon griffon
+Pembroke
+Cardigan
+dvergpuddel
+miniatyrpuddel
+standard puddel
+mexikansk nakenhund
+skogsulv
+hvit ulv
+rød ulv
+prærieulv
+dingo
+dhole
+Afrikansk jakthund
+hyene
+rødrev
+kitrev
+Fjellrev
+grå rev
+stripet katt
+tigerkatt
+Persisk katt
+Siamesisk katt
+egyptisk katt
+puma
+gaupe
+leopard
+snøleopard
+jaguar
+løve
+tiger
+gepard
+brunbjørn
+Amerikansk svartbjørn
+isbjørn
+leppbjørn
+mungo
+surikat
+tigerbille
+marihøne
+jordbille
+langhornet bille
+bladbille
+møkkbille
+neshornbille
+snutebille
+flue
+bie
+maur
+gresshoppe
+siriss
+vandrende pinne
+kakerlakk
+kneler
+sikade
+løvhopper
+gulløye
+øyenstikker
+vannymfe
+admiralsommerfugl
+ringvinge
+monark
+kålsommerfugl
+svovelsommerfugl
+blåvinge
+sjøstjerne
+kråkebolle
+sjøagurk
+skogskanin
+hare
+angorakanin
+hamster
+piggsvin
+reveekorn
+murmeldyr
+bever
+marsvin
+fuks
+sebra
+tamsvin
+villsvin
+vortesvin
+flodhest
+okse
+vannbøffel
+bison
+vær
+storhornsau
+steinbukk
+kuantilope
+impala
+gaselle
+Arabisk kamel
+lama
+røyskatt
+mink
+ilder
+svartfotilder
+oter
+stinkdyr
+grevling
+beltedyr
+tretået dovendyr
+orangutang
+gorilla
+sjimpanse
+gibbon
+siamang
+marekatt
+patasape
+bavian
+makak
+langur
+kolobusape
+snabelape
+silkeape
+kapusiner
+brøleape
+titiape
+edderkoppape
+ekornape
+ringhalelemu
+indri
+Indisk elefant
+Afrikansk elefant
+rødpanda
+kjempepanda
+barracouta
+ål
+coholaks
+steinskjønnhet
+anemonefisk
+stør
+pansergjedde
+løvefisk
+kulefisk
+kuleramme
+abaya
+akademisk kappe
+trekkspill
+akustisk gitar
+hangarskip
+passasjerfly
+luftskip
+alter
+ambulanse
+amfibiekjøretøy
+analogklokke
+bigård
+forkle
+søppelkasse
+angrepsrifle
+ryggsekk
+bakeri
+balansebjelke
+ballong
+kulepenn
+plaster
+banjo
+rekkverk
+vektstang
+frisørstol
+frisørsalong
+låve
+barometer
+tønne
+trillebår
+baseball
+basketball
+babykurv
+fagott
+badehette
+badehåndkle
+badekar
+stasjonsvogn
+fyrtårn
+beger
+bjørneskinn
+ølflaske
+ølglass
+klokkestativ
+smekke
+tandemsykkel
+bikini
+ringperm
+kikkert
+fuglehus
+naust
+bobslede
+bolo slips
+kyse
+bokhylle
+bokhandel
+kapsyl
+bue
+sløyfe
+messinginstrument
+brystholder
+molo
+brystplate
+kost
+bøtte
+spenne
+skuddsikker vest
+kuletog
+slakterbutikk
+taxi
+gryte
+lys
+kanon
+kano
+boksåpner
+cardigangenser
+bilspeil
+karusell
+snekkersett
+kartong
+bilhjul
+minibank
+kassett
+kassettspiller
+borg
+katamaran
+CD-spiller
+cello
+mobiltelefon
+kjede
+kjettinggjerde
+ringbrynje
+motorsag
+kiste
+kommode
+klokke
+vitrineskap
+Julestrømpe
+kirke
+kino
+kjøttøks
+klippebolig
+kappe
+tresko
+cocktailshaker
+kaffekrus
+kaffekanne
+spole
+kombinasjonslås
+datatastatur
+godteriutsalg
+containerskip
+cabriolet
+korketrekker
+kornett
+cowboystøvel
+cowboyhatt
+vugge
+kran
+styrthjelm
+kasse
+krybbe
+slow cooker
+krokketball
+krykke
+kurass
+demning
+skrivebord
+stasjonær datamaskin
+dreieskivetelefon
+bleie
+digitalklokke
+digitalt armbåndsur
+spisebord
+oppvaskklut
+oppvaskmaskin
+skivebrems
+brygge
+hundeslede
+kuppel
+dørmatte
+boreplattform
+tromme
+trommestikke
+hantel
+støpejernsgryte
+elektrisk vifte
+elektrisk gitar
+elektrisk lokomotiv
+underholdningssenter
+konvolutt
+espressomaskin
+ansiktspudder
+fjærboa
+fil
+brannbåt
+brannbil
+peisskjerm
+flaggstang
+fløyte
+klapstol
+amerikansk fotballhjelm
+gaffeltruck
+fontene
+fyllepenn
+himmelseng
+godsvogn
+valthorn
+stekepanne
+pels
+søppelbil
+gassmaske
+bensinpumpe
+drikkebeger
+gokart
+golfball
+golfbil
+gondol
+gong
+kjole
+flygel
+drivhus
+rist
+dagligvarebutikk
+giljotine
+hårspenne
+hårspray
+halvspor
+hammer
+tøykurv
+hårføner
+håndholdt datamaskin
+lommetørkle
+harddisk
+munnspill
+harpe
+skurtresker
+beil
+hylster
+hjemmekino
+bikake
+krok
+bøyleskjørt
+svingstang
+hestevogn
+timeglass
+iPod
+strykejern
+jack-o'-lanterne
+jeans
+jeep
+trøye
+puslespill
+rickshaw
+joystick
+kimono
+knepute
+knute
+laboratoriefrakk
+øse
+lampeskjerm
+bærbar datamaskin
+gressklipper
+linsedeksel
+brevåpner
+bibliotek
+livbåt
+lighter
+limousin
+linjeskip
+leppestift
+mokasin
+krem
+høyttaler
+lupe
+trelastbruk
+magnetisk kompass
+postsekk
+postkasse
+badedrakt
+badebukse
+kumlokk
+maraca
+marimba
+maske
+fyrstikk
+majstang
+labyrint
+målebeger
+medisinkiste
+megalitt
+mikrofon
+mikrobølgeovn
+militæruniform
+melkespann
+minibuss
+miniskjørt
+minivan
+missil
+vott
+miksebolle
+bobil
+Modell T
+modem
+kloster
+skjerm
+moped
+morter
+studentlue
+moské
+myggnetting
+motorscooter
+terrengsykkel
+fjelltelt
+mus
+musefelle
+flyttebil
+munnkurv
+spiker
+nakkebøyle
+halskjede
+flaskesmokk
+notisbok
+obelisk
+obo
+ocarina
+kilometerteller
+oljefilter
+orgel
+oscilloskop
+overskjørt
+oksekjerre
+oksygenmaske
+pakke
+padle
+skovlhjul
+hengelås
+malerpensel
+pyjamas
+palass
+panfløyte
+papirhåndkle
+fallskjerm
+parallelle stenger
+parkbenk
+parkeringsmåler
+personbil
+uteplass
+betalingstelefon
+sokkel
+blyantboks
+blyantspisser
+parfyme
+Petriskål
+kopimaskin
+hakke
+pickelhaube
+stakittgjerde
+pickup
+brygge
+sparegris
+pilleflaske
+pute
+bordtennisball
+vindhjul
+sjørøver
+mugge
+høvel
+planetarium
+plastpose
+tallerkenstativ
+plog
+sugekopp
+Polaroid kamera
+stolpe
+politibil
+poncho
+biljardbord
+brusflaske
+gryte
+pottemakerhjul
+kraftdrill
+bønneteppe
+skriver
+fengsel
+prosjektil
+projektor
+puck
+boksesekk
+håndveske
+fjærpenn
+lappeteppe
+racerbil
+racket
+radiator
+radio
+radioteleskop
+regntønne
+fritidskjøretøy
+snelle
+reflekskamera
+kjøleskap
+fjernkontroll
+restaurant
+revolver
+gevær
+gyngestol
+rotisseri
+viskelær
+rugbyball
+linjal
+løpesko
+pengeskap
+sikkerhetsnål
+saltbøsse
+sandal
+sarong
+saksofon
+slire
+vekt
+skolebuss
+skonnert
+resultattavle
+skjerm
+skru
+skrutrekker
+sikkerhetsbelte
+symaskin
+skjold
+skobutikk
+shoji
+handlekurv
+handlevogn
+spade
+dusjhette
+dusjforheng
+ski
+skimaske
+sovepose
+skyveregel
+skyvedør
+spor
+snorkel
+snøscooter
+snøplog
+såpedispenser
+fotball
+sokk
+solfangerparabol
+sombrero
+suppebolle
+mellomromstast
+romvarmer
+romferge
+slikkepott
+hurtigbåt
+edderkoppnett
+spindel
+sportsbil
+lyskaster
+scene
+damplokomotiv
+stålbuebro
+ståltrommel
+stetoskop
+stola
+steinmur
+stoppeklokke
+komfyr
+sil
+trikk
+båre
+divan
+stupa
+undervannsbåt
+dress
+solur
+solbrille
+solbriller
+solkrem
+hengebro
+vattpinne
+genser
+badebukse
+huske
+bryter
+sprøyte
+bordlampe
+stridsvogn
+kassettspiller
+tekanne
+teddybjørn
+fjernsyn
+tennisball
+stråtak
+teatergardin
+fingerbøl
+treskemaskin
+trone
+tegltak
+brødrister
+tobakksbutikk
+toalettsete
+lykt
+totempæl
+bergingsbil
+leketøysbutikk
+traktor
+semitrailer
+brett
+trenchcoat
+trehjulssykkel
+trimaran
+stativ
+triumfbue
+trolleybuss
+trombone
+badekar
+dreiekors
+skrivemaskintastatur
+paraply
+enhjuling
+pianino
+støvsuger
+vase
+hvelv
+fløyel
+salgsautomat
+messehagel
+viadukt
+fiolin
+volleyball
+vaffeljern
+veggklokke
+lommebok
+garderobe
+krigsfly
+servant
+vaskemaskin
+vannflaske
+vannkanne
+vanntårn
+whiskykanne
+plystrefløyte
+parykk
+insektsnett
+rullegardin
+windsorslips
+vinflaske
+vinge
+wok
+treskje
+ull
+ormegjerde
+vrak
+jolle
+jurte
+nettside
+tegneseriehefte
+kryssord
+gateskilt
+trafikklys
+bokomslag
+meny
+tallerken
+guacamole
+consommé
+gryterett
+trifle
+iskrem
+ispinne
+franskbrød
+bagel
+kringle
+cheeseburger
+pølse
+potetmos
+hodekål
+brokkoli
+blomkål
+squash
+spagettisquash
+eikenøttsquash
+butternutsquash
+agurk
+artisjokk
+paprika
+kardong
+sopp
+Granny Smith-eple
+jordbær
+appelsin
+sitron
+fiken
+ananas
+banan
+jackfrukt
+sukkereple
+granateple
+høy
+carbonara
+sjokoladesaus
+deig
+kjøttbrød
+pizza
+pai
+burrito
+rødvin
+espresso
+kopp
+eggelikør
+alpeeng
+boble
+klippe
+korallrev
+geysir
+innsjøbredde
+odde
+sandbanke
+sjøkyst
+dal
+vulkan
+baseballspiller
+brudgom
+sportsdykker
+raps
+tusenfryd
+gul fruesko
+korn
+eikenøtt
+nype
+hestekastanje
+korallsopp
+skivesopp
+sandmorkel
+stanksopp
+jordstjerne
+maitake
+rørsopp
+kornaks
+toalettpapir
