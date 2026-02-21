@@ -76,19 +76,15 @@ fn CameraScreen(state: Signal<AppState>) -> Element {
     }
 }
 
-/// Mounts while inference runs. use_future fires once on mount, runs inference,
-/// then navigates to ResultScreen. ProcessingScreen stays alive for the full duration
-/// so the task is never cancelled by scope drops.
 #[component]
 fn ProcessingScreen(state: Signal<AppState>) -> Element {
     use_future(move || async move {
         let data = state.read().captured_pixels.clone();
         match data {
             Some((pixels, w, h)) => {
-                let (english, norwegian) = ml::process_image(&pixels, w, h);
+                let detections = ml::process_image(&pixels, w, h);
                 let mut s = state.write();
-                s.detected_label = Some(english);
-                s.translated_label = Some(norwegian);
+                s.detections = detections;
                 s.captured_pixels = None;
                 s.screen = Screen::Result;
             }
@@ -108,13 +104,34 @@ fn ProcessingScreen(state: Signal<AppState>) -> Element {
 
 #[component]
 fn ResultScreen(state: Signal<AppState>) -> Element {
-    let detected = state.read().detected_label.clone().unwrap_or_default();
-    let translated = state.read().translated_label.clone().unwrap_or_default();
+    let detections = state.read().detections.clone();
 
     rsx! {
         div { class: "result-screen",
-            p { class: "label-english", "{detected}" }
-            p { class: "label-norwegian", "{translated}" }
+            h1 { class: "app-title", "Netthinne" }
+            if detections.is_empty() {
+                p { class: "no-detections", "No objects detected" }
+            }
+            div { class: "detections-list",
+                for (i, det) in detections.iter().enumerate() {
+                    div { class: "detection-card", key: "{i}",
+                        div { class: "detection-image",
+                            img {
+                                src: "{det.image_data_url}",
+                                alt: "{det.yolo_label_en}",
+                            }
+                        }
+                        div { class: "detection-labels",
+                            p { class: "section-header", "YOLO" }
+                            p { class: "label-english", "{det.yolo_label_en}" }
+                            p { class: "label-norwegian", "{det.yolo_label_no}" }
+                            p { class: "section-header mt", "ImageNet-1k" }
+                            p { class: "label-english", "{det.inet_label_en}" }
+                            p { class: "label-norwegian", "{det.inet_label_no}" }
+                        }
+                    }
+                }
+            }
             button {
                 class: "new-scan-btn",
                 onclick: move |_| {

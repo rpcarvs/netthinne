@@ -100,28 +100,82 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     min-height: 100dvh;
+    padding: 16px;
+}
+
+.detections-list {
+    flex: 1;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
     gap: 16px;
-    padding: 24px;
+    padding: 8px 0;
+}
+
+.detection-card {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.detection-image img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.detection-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+}
+
+.section-header {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.45;
+}
+
+.section-header.mt {
+    margin-top: 8px;
 }
 
 .label-english {
-    font-size: 2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #ffffff;
     text-transform: capitalize;
 }
 
 .label-norwegian {
-    font-size: 2.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #4fc3f7;
     text-transform: capitalize;
 }
 
+.no-detections {
+    font-size: 1.25rem;
+    opacity: 0.5;
+    text-align: center;
+    padding: 48px 16px;
+}
+
 .new-scan-btn {
-    margin-top: 48px;
+    margin-top: 24px;
+    margin-bottom: 24px;
     padding: 16px 52px;
     font-family: "SN Pro", sans-serif;
     font-size: 1rem;
@@ -135,6 +189,7 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 28px rgba(79, 195, 247, 0.28);
     transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    flex-shrink: 0;
 }
 
 .new-scan-btn:hover {
