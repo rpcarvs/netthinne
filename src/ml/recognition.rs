@@ -3,11 +3,11 @@ pub mod model {
 }
 
 mod labels {
-    include!(concat!(env!("OUT_DIR"), "/ml/labels.rs"));
+    include!(concat!(env!("OUT_DIR"), "/ml/labels_in1k.rs"));
 }
 
 mod labels_norsk {
-    include!(concat!(env!("OUT_DIR"), "/ml/labels_norsk.rs"));
+    include!(concat!(env!("OUT_DIR"), "/ml/labels_in1k_norsk.rs"));
 }
 
 use std::cell::RefCell;
@@ -19,7 +19,6 @@ use model::Model;
 type Backend = NdArray<f32>;
 
 thread_local! {
-    /// Cached model instance. Deserialized once, reused across inference calls.
     static MODEL: RefCell<Option<Model<Backend>>> = const { RefCell::new(None) };
 }
 
@@ -35,8 +34,8 @@ pub fn recognize(float_data: Vec<f32>) -> (String, String) {
         }
     });
 
-    let input = Tensor::<Backend, 1>::from_floats(float_data.as_slice(), &device)
-        .reshape([1, 3, 224, 224]);
+    let input =
+        Tensor::<Backend, 1>::from_floats(float_data.as_slice(), &device).reshape([1, 3, 224, 224]);
 
     let output = MODEL.with(|cell| {
         let guard = cell.borrow();
@@ -45,11 +44,11 @@ pub fn recognize(float_data: Vec<f32>) -> (String, String) {
 
     let class_idx = output.squeeze::<1>().argmax(0).into_scalar() as usize;
 
-    let english = labels::LABELS
+    let english = labels::LABELS_IN1K
         .get(class_idx)
         .unwrap_or(&"unknown")
         .to_string();
-    let norwegian = labels_norsk::LABELS_NORSK
+    let norwegian = labels_norsk::LABELS_IN1K_NORSK
         .get(class_idx)
         .unwrap_or(&"ukjent")
         .to_string();
