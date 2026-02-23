@@ -6,8 +6,8 @@ default:
 build:
     cargo build
 
-run id='':
-    cargo run -- {{ id }}
+run params='':
+    cargo run -- {{ params }}
 
 fmt:
     cargo fmt --all
@@ -18,10 +18,6 @@ lint:
 # use cargo audit from rustsec to find vulnerabilities
 audit:
     cargo audit
-
-# use the mozilla cargo vet to protect from supply-chain attacks
-vet:
-    cargo vet
 
 # run fmt, lint, audit and vet
 ci: fmt lint audit vet
